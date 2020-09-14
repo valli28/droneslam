@@ -40,3 +40,14 @@ but the "correct" way to do it is to "link" it as a sub-repository in Git, but I
 So you'll have to clone this repos, and inside it we will install have the Firmware folder. The Git doesn't know anything about the Firmware folder and it's ignored in .gitignore.
 
 
+# NEVERMIND ALL THIS
+Valli's master repos is the way to go
+
+First clone PX4's firmware and then do all this:
+>cd <Firmware_clone>
+>DONT_RUN=1 make px4_sitl_default gazebo
+>source ~/catkin_ws/devel/setup.bash    # (optional)
+>source Tools/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
+>export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)
+>export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/sitl_gazebo
+>roslaunch px4 posix_sitl.launch

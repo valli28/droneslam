@@ -1,1 +1,6 @@
 future
+toml
+numpy
+empy
+packaging
+jinja2
