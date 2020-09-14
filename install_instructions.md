@@ -1,8 +1,3 @@
-# droneslam
-Fred's and Valli's past-time coding excercises
-
-
-# Setup instructions
 Original guide at https://dev.px4.io/v1.9.0/en/simulation/ros_interface.html
 The guide fails to mention that you have to (of course) download PX4's flightstack and build it,
 but we will cover it here :)
