@@ -12,12 +12,21 @@ If you don't have the "future" module for Python, install it with
 
 You also might have to install ROSdep for Python apparently...
 > sudo apt install python-rosdep2
+And I had to perform this also, so you might as well do it as well:
+> sudo apt-get install python-rosdep python-rosinstall-generator python-vcstool python-rosinstall build-essential
+
 
 Download the installation script for ROS-Gazebo-PX4-mavros at: 
 >https://raw.githubusercontent.com/PX4/Devguide/v1.9.0/build_scripts/ubuntu_sim_ros_melodic.sh
 
 and run the script with
-> source ubuntu_sim_ros_melodic.sh
+>source ubuntu_sim_ros_melodic.sh
+
+If your build fails at some point or the PX4 flight stack doesn't install by itself, then try to cd into catkin_ws/src and do:
+>git clone https://github.com/PX4/Firmware.git
+
+Also remember to clean your build (if it fails) with:
+>catkin clean
 
 That script should take a while and install everything necessary to run everything related to this repository except the python packages in requirements.txt
 
