@@ -8,10 +8,11 @@ The guide fails to mention that you have to (of course) download PX4's flightsta
 but we will cover it here :)
 
 If you don't have the "future" module for Python, install it with
->pip install --user future
+>pip3 install --user future
+
 
 You also might have to install ROSdep for Python apparently...
-> sudo apt install python-rosdep2
+> sudo apt install python3-rosdep2
 
 Download the installation script for ROS-Gazebo-PX4-mavros at: 
 >https://raw.githubusercontent.com/PX4/Devguide/v1.9.0/build_scripts/ubuntu_sim_ros_melodic.sh
