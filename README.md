@@ -8,7 +8,8 @@ The guide fails to mention that you have to (of course) download PX4's flightsta
 but we will cover it here :)
 
 If you don't have the "future" module for Python, install it with
->pip install --user future
+>pip3 install --user future
+
 
 You also might have to install ROSdep for Python apparently...
 > sudo apt install python-rosdep2
