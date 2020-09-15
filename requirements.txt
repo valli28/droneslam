@@ -4,3 +4,7 @@ numpy
 empy
 packaging
 jinja2
+rospkg
+pymavlink
+squaternion
+attrs
