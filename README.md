@@ -40,10 +40,11 @@ but the "correct" way to do it is to "link" it as a sub-repository in Git, but I
 So you'll have to clone this repos, and inside it we will install have the Firmware folder. The Git doesn't know anything about the Firmware folder and it's ignored in .gitignore.
 
 
-# NEVERMIND ALL THIS
-Valli's master repos is the way to go
+# PX4 stuff
+Even though some of the shit above fails, most of the things that are necessary are installed such as ROS and Gazebo are fine. Mavros and Mavlink might be another story... let's see.
 
 First clone PX4's firmware and then do all this:
+>git clone https://github.com/PX4/Firmware.git
 >cd <Firmware_clone>
 >DONT_RUN=1 make px4_sitl_default gazebo
 >source ~/catkin_ws/devel/setup.bash    # (optional)
@@ -51,3 +52,19 @@ First clone PX4's firmware and then do all this:
 >export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)
 >export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/sitl_gazebo
 >roslaunch px4 posix_sitl.launch
+
+If the above steps fail... then I don't know what went wrong for you.
+
+Now ROS is running at the same time as Gazebo and PX4. Let's see if we can do some magic to our workspace. 
+This link explains roughly how to implement an "offboard" node that we can use to control our drone. 
+https://darienmt.com/autonomous-flight/2018/11/25/px4-sitl-ros-example.html
+and the first important things here are: 
+>sudo apt-get install ros-melodic-mavros-msgs
+>sudo apt-get install ros-melodic-mavros ros-melodic-mavros-extras
+
+Now let's make the package. While in the "root" folder of our workspace, make a src folder
+>mkdir src
+>cd src
+Create a catkin package with the following messages
+>catkin_create_pkg offb std_msgs roscpp geometry_msgs mavros_msgs
+

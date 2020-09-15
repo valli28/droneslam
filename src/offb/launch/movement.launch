@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+    <include file="$(find px4)/launch/mavros_posix_sitl.launch">
+        <arg name="vehicle" value="iris" />
+        <arg name="verbose" value="true" />
+        <arg name="world" value="$(find mavlink_sitl_gazebo)/worlds/raadhus_empty.world"/>
+        <arg name="x" value="-35"/>
+        <arg name="y" value="-20"/>
+        <arg name="z" value="0"/>
+    </include>
+
+    <node name="offb" pkg="offb" type="movement.py" output="screen"/>
+    <node name="RoutePlanner" pkg="RoutePlanner" type="facade_planner.py" output="screen"/>
+    <node name="house_cnn" pkg="house_cnn" type="house_ros.py" output="screen"/>
+</launch>
